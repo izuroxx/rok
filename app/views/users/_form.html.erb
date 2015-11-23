@@ -1,0 +1,18 @@
+
+<%= form_for @user do |f| %>
+    <div class="form-group"> 
+        <%= f.label :imie, "Imię"%>
+        <%= f.text_field :imie, class: "form-control"%>
+    </div>
+    <div class="form-group">
+        <%= f.label :nazwisko, "Nazwisko" %>
+        <%= f.text_field :nazwisko, class: "form-control" %> 
+    </div>
+    <div class="form-group">
+        <%= f.label :data_ur, "Data urodzenia" %>
+        <%= f.date_field :data_ur, class: "form-control" %>
+    </div>
+    
+        <%= f.submit "Zapisz" %>
+<% end %>
+
