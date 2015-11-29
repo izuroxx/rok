@@ -4,9 +4,12 @@ get    'login'   => 'sessions#new'
 post   'login'   => 'sessions#create'
 delete 'logout'  => 'sessions#destroy'
 
-root "posts#index"
+root "sessions#new"
 
   resources :posts
+
+  get 'signup' => 'users#new'
+
   resources :users
 
 

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params) # metoda, def poniżej
         
         if @user.save
+            
             redirect_to users_path
         else
             render :new 
