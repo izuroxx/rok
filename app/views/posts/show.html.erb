@@ -13,9 +13,10 @@
 
 
 
-<div class="btn-group" role="group" aria-label="...">
+<div class="btn-group" role="group">
   <button type="button" class="btn btn-default"><%= link_to "Back", posts_path %></button>
   <button type="button" class="btn btn-default"><%= link_to "Edit", edit_post_path %></button>
 </div>
 
- 
+ <!-- uwaga te dwa buttony nie działają w powyższej formie pod mozillą-->
+ <!-- działa wersja jako <!- %= link_to "Back", posts_path, class = "btn btn-default" %> itd. -->
