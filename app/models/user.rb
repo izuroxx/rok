@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+    # attr_accessor :remember_token
 	before_save { self.email = email.downcase }
 	has_secure_password
 	validates	:imie, :nazwisko, :login, presence: true
@@ -8,7 +9,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: { minimum: 6 }
-	has_many :posts
+	has_many :posts, dependent: :destroy
 	
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -16,6 +17,18 @@ class User < ActiveRecord::Base
         BCrypt::Password.create(string, cost: cost)
     end
 
+    # def User.new_token
+    #     SecureRandom.urlsafe_base64
+    # end
+
+    # def remember
+    # self.remember_token = ...
+    # update_attribute(:remember_digest, ...)
+  #end
+
+    def to_s
+        "#{imie} #{nazwisko}"
+    end
     
     def imie_i_nazwisko
         
