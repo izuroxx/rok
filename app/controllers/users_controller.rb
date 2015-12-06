@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+    before_action :authorize
 
     def index
         @users = User.all
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             redirect_to users_path
+
         else
             render :new 
         end
@@ -46,11 +47,21 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
     
-    
+    private
+
     def user_params
         params.require(:user).permit(:imie, :nazwisko, :data_ur, :email, :login, :password, :password_confirmation) 
     end
     
+    def authorize
+    if current_user.nil?
+      redirect_to root_url
+    else
+      if @post && @post.user != current_user
+        redirect_to root_path
+      end
+    end
+  end
 end
 
 

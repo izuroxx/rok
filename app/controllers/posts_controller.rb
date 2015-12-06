@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authorize #except: [:show, :index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -72,6 +73,16 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
+
+    def authorize
+    if current_user.nil?
+      redirect_to login_url
+    else
+      if @post && @post.user != current_user
+        redirect_to root_path
+      end
+    end
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
