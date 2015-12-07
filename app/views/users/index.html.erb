@@ -1,12 +1,12 @@
 
 
-<h1>Users</h1>
+<h2 class="WhiteFont">Users</h2>
 <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Data urodzenia</th>
+            <th class="WhiteFont">Imię</th>
+            <th class="WhiteFont">Nazwisko</th>
+            <th class="WhiteFont">Data urodzenia</th>
             <th></th>
             <th></th>
             
@@ -17,11 +17,11 @@
     <tbody>
         <% @users.each do |user| %>
         <tr>
-            <td><%= link_to user.imie,  user_path(user) %></td>
-            <td><%= user.nazwisko %></td>
-            <td><%= user.data_ur %></td>
-            <td><%= link_to "Edycja",  edit_user_path(user) %></td>
-            <td><%= link_to "Usuń",  user_path(user), method: :delete %></td>
+            <td class="WhiteBckg"><%= link_to user.imie, user_path(user) %></td>
+            <td class="WhiteBckg"><%= user.nazwisko %></td>
+            <td class="WhiteBckg"><%= user.data_ur %></td>
+            <td class="WhiteBckg"><%= link_to "Edycja", edit_user_path(user) %></td>
+            <td class="WhiteBckg"><%= link_to "Usuń", user_path(user), method: :delete %></td>
         </tr>
         
         <% end %>
