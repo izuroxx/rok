@@ -27,3 +27,7 @@ WhiteBckg {
     background-color: #ffffff;
 }
 
+.BlackFont {
+    color: #000000;
+    font-weight: bold;
+}

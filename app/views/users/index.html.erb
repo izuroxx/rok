@@ -1,7 +1,7 @@
 
 
 <h2 class="WhiteFont">Users</h2>
-<table class="table table-hover table-striped">
+<table class="table table-hover">
     <thead>
         <tr>
             <th class="WhiteFont">Imię</th>
@@ -17,11 +17,11 @@
     <tbody>
         <% @users.each do |user| %>
         <tr>
-            <td class="WhiteBckg"><%= link_to user.imie, user_path(user) %></td>
-            <td class="WhiteBckg"><%= user.nazwisko %></td>
-            <td class="WhiteBckg"><%= user.data_ur %></td>
-            <td class="WhiteBckg"><%= link_to "Edycja", edit_user_path(user) %></td>
-            <td class="WhiteBckg"><%= link_to "Usuń", user_path(user), method: :delete %></td>
+            <td class="WhiteFont"><%= link_to user.imie, user_path(user) %></td>
+            <td class="WhiteFont"><%= user.nazwisko %></td>
+            <td class="WhiteFont"><%= user.data_ur %></td>
+            <td class="WhiteFont"><%= link_to "Edycja", edit_user_path(user) %></td>
+            <td class="WhiteFont"><%= link_to "Usuń", user_path(user), method: :delete %></td>
         </tr>
         
         <% end %>
