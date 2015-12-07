@@ -1,10 +1,12 @@
+<%= link_to "Home", root_path, class: "btn btn-default" %>
+
 <% if logged_in? %>
-        <%= link_to "Home", root_path, class: "btn btn-default" %>
-        <%= link_to "Log out", logout_path, class: "btn btn-default", method: :delete %>
+        
         <%= link_to "Users", users_path, class: "btn btn-default" %><!-- docelowo dla admina-->
 		<%= link_to "All posts", posts_path, class: "btn btn-default" %>
 		<%= link_to "New post", new_post_path, class: "btn btn-default" %>
-		<p>You are logged in as <%= @current_user.login%></p>
+		<%= link_to "Log out", logout_path, class: "btn btn-default", method: :delete %>
+		<p class="WhiteFont">You are logged in as <%= @current_user.login%></p>
 <% else %>
         <a class="btn btn-default" href="<%= login_path %>" role="button">Log in</a>
         <a class="btn btn-default" href="<%= new_user_path %>" role="button">Sign up</a>
