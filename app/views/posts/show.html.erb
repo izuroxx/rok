@@ -14,6 +14,18 @@
 
 <p id="notice"><%= notice %></p>
 
+
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+  <div>
+    <strong><%= comment.user_id %></strong>
+    <br />
+    <p><%= comment.body %></p>
+    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+<% end %>
+<%= render 'comments/form' %>
+
 <nav>
   <ul class="pager">
     <li><%= link_to "Back", posts_path %></li>

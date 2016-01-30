@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   get 'welcome/index'
 
 get    'login'   => 'sessions#new'
